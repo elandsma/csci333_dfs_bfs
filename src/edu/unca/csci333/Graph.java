@@ -29,13 +29,14 @@ public class Graph {
 	}
 	
 	//methods
-	public void depthFirstSearch() {		
+	public void depthFirstSearch() {	
+		//first reset all nodes to white and parent-less
 		for(Node curr : this.nodes) {
 			curr.setColor(0);
 			curr.setParent(Integer.MIN_VALUE);
 		}
-		time =0;
-		for(Node u : this.nodes) {
+		time = 0;
+		for(Node u : this.nodes) {     //for every node, visit if white.
 			if(u.getColor() == 0)
 				dfsVisit(u);
 		}
@@ -44,10 +45,10 @@ public class Graph {
 	private void dfsVisit(Node u) {
 		time++;
 		u.setDTime(time);
-		u.setColor(1);
-		//for each neighbor V of U{
+		u.setColor(1);  //make this node gray.
+		//for each neighbor V of U
 		for(int i=0; i<edges.length; i++)	//for each column per row 
-			if(edges[u.getName()][i] == true) {   	//if it is a neighbor of U
+			if((edges[u.getName()][i] == true) && (nodes[i].getColor()==0)) {   	//if it is a neighbor of U AND it is white
 				nodes[i].setParent(u.getName());	//node I's parent becomes U.
 				dfsVisit(nodes[i]);					//recurse
 		}

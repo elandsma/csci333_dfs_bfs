@@ -78,7 +78,7 @@ public class Main {
 		
 		//this graph is a square with triangles on adjacent ends.
 		boolean[][] graph4 =  {
-				{false, true, false, false, false, false, true},  //1, 5
+				{false, true, false, false, false, true},  //1, 5
 				{true, false, true, true, false, true},  //0, 2, 3, 5
 				{false, true, false, true, false, false}, //1, 3
 				{false, true, true, false, true, false}, //1, 2, 4
