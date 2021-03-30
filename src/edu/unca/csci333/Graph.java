@@ -29,9 +29,7 @@ public class Graph {
 	}
 	
 	//methods
-	public void depthFirstSearch() {
-		//change signature!
-		
+	public void depthFirstSearch() {		
 		for(Node curr : this.nodes) {
 			curr.setColor(0);
 			curr.setParent(Integer.MIN_VALUE);
@@ -44,8 +42,6 @@ public class Graph {
 	}
 	
 	private void dfsVisit(Node u) {
-		//change signature!
-		
 		time++;
 		u.setDTime(time);
 		u.setColor(1);
@@ -61,8 +57,6 @@ public class Graph {
 	}
 	
 	public void breadthFirstSearch(int source) {
-		//Change Signature?
-		
 		Node s = nodes[source];
 		//reset all nodes that are not S
 		for(int i=0; i<n; i++) {
@@ -94,10 +88,14 @@ public class Graph {
 		}
 	}
 	
+	@Override
 	public String toString() {
-		String ret = ("Edges Adjacency Matrix:\n");
+		String ret = ("******************\n"); 
+		ret += ("This is a graph toString!\n");
+		ret += ("Edges Adjacency Matrix:\n");
 		for(int i=0; i < this.n; i++) {
 			for(int j=0; j<edges[i].length; j++) {
+				ret+="\t";
 				if (edges[i][j]==true)
 					ret+= "1 ";
 				else
@@ -110,6 +108,7 @@ public class Graph {
 			ret+= curr.toString();
 			ret+="\n";
 		}
+		ret += ("******************\n");
 		return ret;
 	}
 	

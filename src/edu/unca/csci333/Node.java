@@ -32,12 +32,12 @@ public class Node {
 	//Methods
 	@Override
 	public String toString() {
-		String ret = ("{\nName: "+this.name+"\n");
-		ret += ("Parent: "+this.parent+"\n");
-		ret += ("dTime: "+this.dTime+"\n");
-		ret += ("fTime: "+this.fTime+"\n");
-		ret += ("Dist: "+this.dist+"\n");
-		ret += ("Color: "+this.color+"\n}");
+		String ret = ("{\n\tName: "+this.name+"\n");
+		ret += ("\tParent: "+this.parent+"\n");
+		ret += ("\tdTime: "+this.dTime+"\n");
+		ret += ("\tfTime: "+this.fTime+"\n");
+		ret += ("\tDist: "+this.dist+"\n");
+		ret += ("\tColor: "+this.color+"\n}");
 		return ret;
 		// return a String with nicely labeled, concatenated data fields
 	}
