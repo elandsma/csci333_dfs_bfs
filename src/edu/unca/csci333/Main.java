@@ -10,21 +10,15 @@ package edu.unca.csci333;
 
 public class Main {
 
-	public static void main(String[] args) {
-
-	//for at least 3 different graphs size >=6 nodes, create graph, perform BFS algorithm, display results using graph's tostring.
-	//Then, create 3 more graphs >=6 nodes, and perform DFS algos and display results.
-		
-		System.out.println("Hello world. Welcome to my BFS/DFS demonstration.");
-		
-		//this graph is the second example on page 590 in the textbook.
+	public static void main(String[] args) {	
+		System.out.println("Hello world. Welcome to my BFS/DFS demonstration.");		
 		boolean[][] graph1 =  {
-				{false, true, false, true, false, false},
-				{false, false, false, false, true, false},
-				{false, false, false, false, true, true},
-				{false, true, false, false, false, false},
-				{false, false, false, true, false, false},
-				{false, false, false, false, false, true}				
+				{false, true, false, false, true, false}, //1,4
+				{true, false, true, false, false, false},//0,2
+				{false, true, false, true, false, true},//1,3,5
+				{false, false, true, false, true, true},//2,4,5
+				{true, false, false, true, false, false},//0,3
+				{false, false, true, true, false, false} //2,3		
 		};
 		Graph testGraph1 = new Graph(graph1);
 		System.out.println("Graph 1 after initialization:");
@@ -69,13 +63,13 @@ public class Main {
 		
 		System.out.println("Graph 3 after initialization:");
 		System.out.println(testGraph3);
-		testGraph2.breadthFirstSearch(2);
 		System.out.println("Graph 2 after BFS on Node 2:");
+		testGraph2.breadthFirstSearch(2);
 		System.out.println(testGraph2);
-		
-		
-		
-		
+		System.out.println("Graph 2 after BFS on Node 4:");
+		testGraph2.breadthFirstSearch(4);
+		System.out.println(testGraph2);
+						
 		//this graph is a square with triangles on adjacent ends.
 		boolean[][] graph4 =  {
 				{false, true, false, false, false, true},  //1, 5
@@ -91,5 +85,38 @@ public class Main {
 		testGraph4.depthFirstSearch();
 		System.out.println("Graph 4 after DFS:");
 		System.out.println(testGraph4);
+		
+		
+		boolean[][] graph5 =  {
+				{false, true, false, false, false, false},  //1
+				{true, false, true, true, false, false},  // 0, 2, 3
+				{false, true, false, false, false, false}, // 1
+				{false, true, false, false, true, true}, //1, 4, 5
+				{false, false, false, true, false, true}, //3, 5
+				{false, false, false, true, true, false}, //3, 4
+		};
+		
+		Graph testGraph5 = new Graph(graph5);
+		System.out.println("Graph 5 after initialization:");
+		System.out.println(testGraph5);
+		testGraph5.depthFirstSearch();
+		System.out.println("Graph 5 after DFS:");
+		System.out.println(testGraph5);
+		
+		boolean[][] graph6 =  {
+				{false, true, true, true, false, false},  //1,2,3
+				{true, false, false, false, false, false},  //0
+				{true, false, false, false, false, false}, //0
+				{true, false, false, false, true, true}, //0,4,5
+				{false, false, false, true, false, false}, // 3
+				{false, false, false, true, false, false}, //3
+		};
+		Graph testGraph6 = new Graph(graph6);
+		System.out.println("Graph 6 after initialization:");
+		System.out.println(testGraph6);
+		testGraph6.depthFirstSearch();
+		System.out.println("Graph 6 after DFS:");
+		System.out.println(testGraph6);
+		
 	}
 }

@@ -33,13 +33,12 @@ public class Node {
 	@Override
 	public String toString() {
 		String ret = ("\t{Name: "+this.name);
+		ret += ("\tColor: "+this.color);
 		ret += ("\tParent: "+this.parent);
 		ret += ("\tdTime: "+this.dTime);
 		ret += ("\tfTime: "+this.fTime);
-		ret += ("\tDist: "+this.dist);
-		ret += ("\tColor: "+this.color+"}");
+		ret += ("\tDist: "+this.dist+"}");
 		return ret;
-		// return a String with nicely labeled, concatenated data fields
 	}
 	
 	//getters and setters

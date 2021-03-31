@@ -11,7 +11,7 @@ import java.util.Queue;
  */
 
 public class Graph {
-	//instance vars
+	//instance variables
 	private int n;
 	private int time;
 	private boolean[][] edges;;
@@ -28,7 +28,11 @@ public class Graph {
 		this.time=0;
 	}
 	
-	//methods
+	//Methods
+	
+	/*
+	 * Performs a depth first search on the entire graph, augments each node's data appropriately.
+	 */
 	public void depthFirstSearch() {	
 		//first reset all nodes to white and parent-less
 		for(Node curr : this.nodes) {
@@ -36,12 +40,16 @@ public class Graph {
 			curr.setParent(Integer.MIN_VALUE);
 		}
 		time = 0;
-		for(Node u : this.nodes) {     //for every node, visit if white.
+		for(Node u : this.nodes) {     //for every node, dfs-visit if white.
 			if(u.getColor() == 0)
 				dfsVisit(u);
 		}
 	}
 	
+	/*
+	 * Recursive Depth First Search visit.
+	 * @param Node u, current node we are visiting.
+	 */
 	private void dfsVisit(Node u) {
 		time++;
 		u.setDTime(time);
@@ -57,9 +65,13 @@ public class Graph {
 		u.setFTime(time);	
 	}
 	
+	/*
+	 * Perform a breadth first search and augments each node with relevant data. 
+	 * @param int source, the name/key of the node we are searching from.
+	 */
 	public void breadthFirstSearch(int source) {
 		Node s = nodes[source];
-		//reset all nodes that are not S
+		//reset all nodes 
 		for(int i=0; i<n; i++) {
 			if(i!=source) {
 				nodes[i].setColor(0);
@@ -92,7 +104,6 @@ public class Graph {
 	@Override
 	public String toString() {
 		String ret = ("******************\n"); 
-		ret += ("This is a graph toString!\n");
 		ret += ("Edges Adjacency Matrix:\n");
 		for(int i=0; i < this.n; i++) {
 			for(int j=0; j<edges[i].length; j++) {
